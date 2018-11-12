@@ -1,10 +1,14 @@
 (function(exports) {
-  function NoteList(note) {
-    this.note = note;
+  function NoteList() {
+    this.notes = [];
   }
 
-  NoteList.prototype.getNote = function() {
-    return this.note;
+  NoteList.prototype.getNotes = function() {
+    return this.notes;
+  };
+
+  NoteList.prototype.addNote = function(note) {
+    this.notes.push(note);
   };
 
   exports.NoteList = NoteList;
