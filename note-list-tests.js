@@ -1,21 +1,17 @@
-function testNoteListWithOneNote(note) {
+function testNoteListWithOneNote(text) {
   var noteList = new NoteList();
-  noteList.addNote(note);
-  assert.isTrue(noteList.getNotes()[0].text === note.text);
-}
-var note = new Note("hello");
-
-testNoteListWithOneNote(note);
-
-function testNoteListWithTwoNotes(noteOne, noteTwo) {
-  var noteList = new NoteList();
-  noteList.addNote(noteOne);
-  noteList.addNote(noteTwo);
-  assert.isTrue(noteList.getNotes()[0].text === noteOne.text);
-  assert.isTrue(noteList.getNotes()[1].text === noteTwo.text);
+  noteList.createNote(text);
+  assert.isTrue(noteList.getNotes()[0].text === text);
 }
 
-var noteOne = new Note("Hello Anouska");
-var noteTwo = new Note("Hello Henry");
+testNoteListWithOneNote("hello");
 
-testNoteListWithTwoNotes(noteOne, noteTwo);
+function testNoteListWithTwoNotes(textOne, textTwo) {
+  var noteList = new NoteList();
+  noteList.createNote(textOne);
+  noteList.createNote(textTwo);
+  assert.isTrue(noteList.getNotes()[0].text === textOne);
+  assert.isTrue(noteList.getNotes()[1].text === textTwo);
+}
+
+testNoteListWithTwoNotes("Hello Anouska", "Hello Henry");
